@@ -1,0 +1,25 @@
+a{
+    text-decoration: none;
+}
+
+
+
+.text-white{
+    color: white;
+    transition: color 1000ms ;
+    
+}
+
+.text-white:hover{
+    color: gray;
+
+}
+
+.card{
+    display: inline-block;
+}
+
+body{
+    background-color: lightslategray;
+}
+

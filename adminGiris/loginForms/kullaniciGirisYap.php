@@ -1,0 +1,74 @@
+<?php
+
+include("../../includes/header.php");
+
+?>
+
+<div class="card bg-dark text-white p-5" id="marg" style="width: 25rem;">
+    <h1 class="card-title text-center">Kullanıcı Adı ve Şifrenizle Giriş Yapınız</h1>
+    <div class="card-body">
+        <form class="form-group" action="../login.php" method="POST">
+            <label for="rumuz">Kullanıcı adı :</label>
+            <input id="rumuz" class="form-control mt-1" type="text" name="rumuz" placeholder="Kullanıcı adınızı girin.">
+            <div id="rumuzMesaj" class="bg-danger p-1 mt-1 d-none">Kullanıcı adı boş bırakılamaz.</div>
+            <label class="mt-3" for="KullaniciSifre">Şifre :</label>
+            <input id="sifre" class="form-control mt-1" type="password" name="sifre" placeholder="Şifrenizi girin.">
+            <div id="sifreMesaj" class="bg-danger p-1 mt-1 d-none">Şifre boş bırakılamaz.</div>
+            <input type="submit" value="Giriş" class="btn btn-primary mt-3">
+        </form>
+        <div class="card-footer text-center"><a class='btn btn-secondary ' href='/ProjeE-ticaret/adminGiris/uyeForm.php'>Üye ol</a></div>
+        <div class="text-center"><a class="btn btn-info" href="/ProjeE-ticaret/sifreIslemler/epostaGir.php">Şifremi Unuttum</a></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="adminGiris.css">
+
+
+<script>
+    // Sayfa Hazır olduğunda Çalış
+    $(document).ready(function() {
+
+        //inputları alıyoruz
+        var kullaniciAdInput = $("#rumuz");
+        var sifreInput = $("#sifre");
+
+      
+        //click olduğunda ve tuşa basıldığında gerçekleşen fonksiyonlar
+        kullaniciAdInput.click(function() {
+            //rumuza tıklandığında rumuz için oluşturduğumuz mesaj görünür oluyor
+            if ($(this).val() == "") {
+                $("#rumuzMesaj").removeClass("d-none");
+            }
+        });
+
+        kullaniciAdInput.keypress(function() {
+            //rumuza yazı yazıldığında rumuz için oluşturduğumuz mesaj yok oluyor
+            $("#rumuzMesaj").addClass("d-none");
+        });
+
+        //rumuzla aynı işlemi burada da yapıyoruz
+        sifreInput.click(function() {
+            if ($(this).val() == "") {
+                $("#sifreMesaj").removeClass("d-none");
+            }else {
+                $("#sifreMesaj").addClass("d-none");
+            }
+        });
+
+        sifreInput.keypress(function() {
+            $("#sifreMesaj").addClass("d-none");
+        });
+  
+
+    });
+</script>
+
+</body>
+
+</html>
